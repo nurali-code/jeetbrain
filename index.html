@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEET BRAIN</title>
+    <meta name="theme-color" content="#762aa5" />
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+    <main>
+        <video id="vidMob" playsinline muted autoplay loop poster="img/poster_mob.jpg" class="mob" src="vid/mob.mp4"
+            type="video/mp4"></video>
+        <video id="vidPc" muted loop poster="img/poster.jpg" class="pc" src="vid/pc.mp4" type="video/mp4"></video>
+
+        <div class="content">
+            <button class="btn" onclick="copyText()" data-copy="dufbewuif2r1i2324">dufbewuif2r1i2324<i>upnYONubdwefo</i>
+                <img src="img/ic-copy.svg" alt="copy">
+            </button>
+            <a href="#" target="_blank" class="footer">
+                <img src="img/solana.png" alt="solana">
+            </a>
+        </div>
+    </main>
+
+    <script>
+        const vidPc = document.getElementById('vidPc');
+        const vidMob = document.getElementById('vidMob');
+        if (window.innerWidth >= 800) {
+            vidPc.setAttribute('autoplay', true)
+            vidMob.removeAttribute('autoplay', true)
+        } else {
+            vidPc.removeAttribute('autoplay', true)
+            vidMob.setAttribute('autoplay', true)
+        }
+
+        function copyText() {
+            var button = document.querySelector('.btn');
+            var dataToCopy = button.getAttribute('data-copy');
+            navigator.clipboard.writeText(dataToCopy)
+                .then(function () { alert('Text copied: ' + dataToCopy); })
+                .catch(function (err) { console.error('Failed to copy text:', err); });
+        }
+    </script>
+
+
+</body>
+
+</html>
